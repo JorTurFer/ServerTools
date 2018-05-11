@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using ServerTools.Items;
 using ServerTools.Arenas;
+using ServerTools.BGs;
+
+
 namespace ServerTools
 {
   public partial class SelectorForm : Form
@@ -21,6 +24,12 @@ namespace ServerTools
     {
       ArenasReaderForm arenas_f = new ArenasReaderForm();
       arenas_f.ShowDialog();
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+      BGsReaderForm bg_f = new BGsReaderForm();
+      bg_f.ShowDialog();
     }
   }
 }

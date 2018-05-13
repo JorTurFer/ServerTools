@@ -68,9 +68,9 @@ namespace ServerTools.Items
             bool bItem = !string.IsNullOrWhiteSpace(strItem);
             bool bAction = !string.IsNullOrWhiteSpace(strAction);
 
-            result = m_lstLineas.AsParallel().Where(x => bPlayer ? x.Player == strPlayer : true &&
-             bItem ? x.Item == strItem : true &&
-             bAction ? x.Action == strAction : true).ToList();
+            result = m_lstLineas.AsParallel().Where(x => (bPlayer ? x.Player == strPlayer : true) &&
+             (bItem ? x.Item == strItem : true) &&
+             (bAction ? x.Action == strAction : true)).ToList();
 
             int nCount = result.Count();
             dataGridView1.DataSource = result;

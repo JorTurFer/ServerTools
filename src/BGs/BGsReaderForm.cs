@@ -15,6 +15,8 @@ namespace ServerTools.BGs
   {
     private List<Linea> m_lstLineas = new List<Linea>();
 
+    const int MINFORCHECK = 3;
+
     public BGsReaderForm()
     {
       InitializeComponent();
@@ -32,7 +34,7 @@ namespace ServerTools.BGs
             continue;
           m_lstLineas.Add(new Linea(lin));
         }
-        if (checkBox1.Checked)
+        if (cb_PreFilter.Checked)
           FirstCheck();
         else
         {
@@ -51,8 +53,9 @@ namespace ServerTools.BGs
       List<Linea> result = new List<Linea>();
 
       bool bPlayer = !string.IsNullOrWhiteSpace(strPlayer);
-
-      result = m_lstLineas.AsParallel().Where(x => x.Player == strPlayer && x.Fecha.Date == selectedDate.Date).ToList();
+      bool bDate = cb_Date.Checked;
+      result = m_lstLineas.AsParallel().Where(x => bPlayer ? x.Player == strPlayer : true
+      && bDate ? x.Fecha.Date == selectedDate.Date : true).ToList();
 
       int nCount = result.Count();
       dataGridView1.DataSource = result;
@@ -62,14 +65,13 @@ namespace ServerTools.BGs
         if (result[i].Accion == "Salir")
           continue;
 
-        bool bCheck = (result[i + 1].Fecha - result[i].Fecha).TotalMinutes < 1;
+        bool bCheck = (result[i + 1].Fecha - result[i].Fecha).TotalMinutes < MINFORCHECK;
         if (bCheck)
         {
           dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
           dataGridView1.Rows[i + 1].DefaultCellStyle.BackColor = Color.Red;
         }
       }
-
     }
 
     void FirstCheck()
@@ -77,7 +79,7 @@ namespace ServerTools.BGs
       List<string> NamesToCheck = new List<string>();
       List<(string, DateTime)> tmpData = new List<(string, DateTime)>();
             
-      foreach (var lin in m_lstLineas.Where(x=> checkBox2.Checked ? x.Fecha.Date == dateTimePicker1.Value.Date : true))
+      foreach (var lin in m_lstLineas.Where(x=> cb_Date.Checked ? x.Fecha.Date == dateTimePicker1.Value.Date : true))
       {
         if (lin.Accion == "Entrar")
         {
@@ -91,7 +93,7 @@ namespace ServerTools.BGs
           {
             continue;
           }
-          if ((lin.Fecha - inserted.Item2).TotalMinutes < 1)
+          if ((lin.Fecha - inserted.Item2).TotalMinutes < MINFORCHECK)
           {
             NamesToCheck.Add(lin.Player);
           }

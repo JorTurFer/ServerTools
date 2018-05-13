@@ -32,9 +32,9 @@
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
       this.button1 = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.checkBox1 = new System.Windows.Forms.CheckBox();
+      this.cb_PreFilter = new System.Windows.Forms.CheckBox();
       this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-      this.checkBox2 = new System.Windows.Forms.CheckBox();
+      this.cb_Date = new System.Windows.Forms.CheckBox();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -69,15 +69,15 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
-      // checkBox1
+      // cb_PreFilter
       // 
-      this.checkBox1.AutoSize = true;
-      this.checkBox1.Location = new System.Drawing.Point(103, 12);
-      this.checkBox1.Name = "checkBox1";
-      this.checkBox1.Size = new System.Drawing.Size(64, 17);
-      this.checkBox1.TabIndex = 6;
-      this.checkBox1.Text = "PreFilter";
-      this.checkBox1.UseVisualStyleBackColor = true;
+      this.cb_PreFilter.AutoSize = true;
+      this.cb_PreFilter.Location = new System.Drawing.Point(103, 12);
+      this.cb_PreFilter.Name = "cb_PreFilter";
+      this.cb_PreFilter.Size = new System.Drawing.Size(64, 17);
+      this.cb_PreFilter.TabIndex = 6;
+      this.cb_PreFilter.Text = "PreFilter";
+      this.cb_PreFilter.UseVisualStyleBackColor = true;
       // 
       // dateTimePicker1
       // 
@@ -86,24 +86,24 @@
       this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
       this.dateTimePicker1.TabIndex = 7;
       // 
-      // checkBox2
+      // cb_Date
       // 
-      this.checkBox2.AutoSize = true;
-      this.checkBox2.Location = new System.Drawing.Point(103, 35);
-      this.checkBox2.Name = "checkBox2";
-      this.checkBox2.Size = new System.Drawing.Size(71, 17);
-      this.checkBox2.TabIndex = 8;
-      this.checkBox2.Text = "WithDate";
-      this.checkBox2.UseVisualStyleBackColor = true;
+      this.cb_Date.AutoSize = true;
+      this.cb_Date.Location = new System.Drawing.Point(103, 35);
+      this.cb_Date.Name = "cb_Date";
+      this.cb_Date.Size = new System.Drawing.Size(71, 17);
+      this.cb_Date.TabIndex = 8;
+      this.cb_Date.Text = "WithDate";
+      this.cb_Date.UseVisualStyleBackColor = true;
       // 
       // BGsReaderForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Controls.Add(this.checkBox2);
+      this.Controls.Add(this.cb_Date);
       this.Controls.Add(this.dateTimePicker1);
-      this.Controls.Add(this.checkBox1);
+      this.Controls.Add(this.cb_PreFilter);
       this.Controls.Add(this.comboBox1);
       this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.button1);
@@ -121,8 +121,8 @@
     private System.Windows.Forms.DataGridView dataGridView1;
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.OpenFileDialog openFileDialog1;
-    private System.Windows.Forms.CheckBox checkBox1;
+    private System.Windows.Forms.CheckBox cb_PreFilter;
     private System.Windows.Forms.DateTimePicker dateTimePicker1;
-    private System.Windows.Forms.CheckBox checkBox2;
+    private System.Windows.Forms.CheckBox cb_Date;
   }
 }
